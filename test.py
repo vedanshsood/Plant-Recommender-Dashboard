@@ -257,4 +257,6 @@ def get_predictions(n_clicks, pm2_5, pm10, no, no2, nox, nh3, co, so2, o3, benze
         return [html.P(f"Error: {e}")], {}, {}
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    import os
+    port = int(os.environ.get("PORT", 8080))
+    app.run(debug=True, host="0.0.0.0", port=port)
