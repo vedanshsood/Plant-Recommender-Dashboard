@@ -228,5 +228,8 @@ def get_predictions(n_clicks, pm2_5, pm10, no, no2, nox, nh3, co, so2, o3, benze
     except Exception as e:
         return [html.P(f"Error: {e}")], {}, {}
 
+import os
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 8050))
+    app.run(host="0.0.0.0", port=port, debug=True)
